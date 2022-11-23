@@ -13,7 +13,6 @@ class AuthState<T extends StatefulWidget> extends SupabaseAuthState<T> {
 
   @override
   void onAuthenticated(Session session) {
-    print('Session Obj: ');
     if (mounted) {
       Navigator.pushReplacementNamed(context, '/dashboard');
     }
