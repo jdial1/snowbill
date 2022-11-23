@@ -17,9 +17,11 @@ class _SignInScreenState extends AuthState<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Color background = const Color.fromRGBO(52, 56, 76, 1);
+    Color accentColor = const Color.fromRGBO(89, 207, 206, 1);
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: background,
         resizeToAvoidBottomInset: true,
         body: SizedBox(
           height: 768,
@@ -51,6 +53,7 @@ class _SignInScreenState extends AuthState<SignInScreen> {
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 26,
+                                    color: Colors.white
                                 ),
                               ),
                             ),
@@ -60,106 +63,106 @@ class _SignInScreenState extends AuthState<SignInScreen> {
                                 "assets/images/logo.png",
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 16,
-                                top: 28,
-                                right: 16,
-                              ),
-                              child: Container(
-                                width: 343,
-                                decoration: BoxDecoration(
-                                  color: Colors.white70,
-                                  borderRadius: BorderRadius.circular(
-                                    5,
-                                  ),
-                                  border: Border.all(
-                                    color: Colors.blue.shade50,
-                                    width: 1,
-                                  ),
-                                ),
-                                child: TextFormField(
-                                  controller: emailController,
-                                  decoration: InputDecoration(
-                                      hintText: "Enter your email",
-                                      hintStyle: TextStyle(
-                                          fontSize: 12.0,
-                                          color: Colors.blueGrey.shade300),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(
-                                          5,
-                                        ),
-                                        borderSide: const BorderSide(
-                                            color: Colors.white70),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(
-                                          5,
-                                        ),
-                                        borderSide: const BorderSide(
-                                            color: Colors.white70),
-                                      ),
-                                      prefixIcon: const Padding(
-                                        padding: EdgeInsets.all(
-                                          15,
-                                        ),
-                                        child: Icon(Icons.email_outlined),
-                                      ),
-                                      filled: true,
-                                      fillColor: Colors.white),
-                                  style: TextStyle(
-                                      color: Colors.blueGrey.shade300,
-                                      fontSize: 14.0,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: 343,
-                              height: 48,
-                              margin: const EdgeInsets.only(
-                                left: 16,
-                                top: 8,
-                                right: 16,
-                              ),
-                              child: TextFormField(
-                                controller: passwordController,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                    hintText: "Enter Password",
-                                    hintStyle: TextStyle(
-                                        fontSize: 12.0,
-                                        color: Colors.blueGrey.shade300),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(
-                                        5,
-                                      ),
-                                      borderSide: BorderSide(
-                                          color: Colors.blue.shade50),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(
-                                        5,
-                                      ),
-                                      borderSide: BorderSide(
-                                          color: Colors.blue.shade100),
-                                    ),
-                                    prefixIcon: const Padding(
-                                      padding: EdgeInsets.all(
-                                        15,
-                                      ),
-                                      child: Icon(Icons.lock_outline_rounded),
-                                    ),
-                                    filled: true,
-                                    fillColor: Colors.white),
-                                style: TextStyle(
-                                    color: Colors.blueGrey.shade300,
-                                    fontSize: 14.0,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ),
+                            // Padding(
+                            //   padding: const EdgeInsets.only(
+                            //     left: 16,
+                            //     top: 28,
+                            //     right: 16,
+                            //   ),
+                            //   child: Container(
+                            //     width: 343,
+                            //     decoration: BoxDecoration(
+                            //       color: Colors.white70,
+                            //       borderRadius: BorderRadius.circular(
+                            //         5,
+                            //       ),
+                            //       border: Border.all(
+                            //         color: Colors.blue.shade50,
+                            //         width: 1,
+                            //       ),
+                            //     ),
+                            //     child: TextFormField(
+                            //       controller: emailController,
+                            //       decoration: InputDecoration(
+                            //           hintText: "Enter your email",
+                            //           hintStyle: TextStyle(
+                            //               fontSize: 12.0,
+                            //               color: Colors.blueGrey.shade300),
+                            //           enabledBorder: OutlineInputBorder(
+                            //             borderRadius: BorderRadius.circular(
+                            //               5,
+                            //             ),
+                            //             borderSide: const BorderSide(
+                            //                 color: Colors.white70),
+                            //           ),
+                            //           focusedBorder: OutlineInputBorder(
+                            //             borderRadius: BorderRadius.circular(
+                            //               5,
+                            //             ),
+                            //             borderSide: const BorderSide(
+                            //                 color: Colors.white70),
+                            //           ),
+                            //           prefixIcon: const Padding(
+                            //             padding: EdgeInsets.all(
+                            //               15,
+                            //             ),
+                            //             child: Icon(Icons.email_outlined),
+                            //           ),
+                            //           filled: true,
+                            //           fillColor: Colors.white),
+                            //       style: TextStyle(
+                            //           color: Colors.blueGrey.shade300,
+                            //           fontSize: 14.0,
+                            //           fontFamily: 'Poppins',
+                            //           fontWeight: FontWeight.w400),
+                            //     ),
+                            //   ),
+                            // ),
+                            // Container(
+                            //   width: 343,
+                            //   height: 48,
+                            //   margin: const EdgeInsets.only(
+                            //     left: 16,
+                            //     top: 8,
+                            //     right: 16,
+                            //   ),
+                            //   child: TextFormField(
+                            //     controller: passwordController,
+                            //     obscureText: true,
+                            //     decoration: InputDecoration(
+                            //         hintText: "Enter Password",
+                            //         hintStyle: TextStyle(
+                            //             fontSize: 12.0,
+                            //             color: Colors.blueGrey.shade300),
+                            //         enabledBorder: OutlineInputBorder(
+                            //           borderRadius: BorderRadius.circular(
+                            //             5,
+                            //           ),
+                            //           borderSide: BorderSide(
+                            //               color: Colors.blue.shade50),
+                            //         ),
+                            //         focusedBorder: OutlineInputBorder(
+                            //           borderRadius: BorderRadius.circular(
+                            //             5,
+                            //           ),
+                            //           borderSide: BorderSide(
+                            //               color: Colors.blue.shade100),
+                            //         ),
+                            //         prefixIcon: const Padding(
+                            //           padding: EdgeInsets.all(
+                            //             15,
+                            //           ),
+                            //           child: Icon(Icons.lock_outline_rounded),
+                            //         ),
+                            //         filled: true,
+                            //         fillColor: Colors.white),
+                            //     style: TextStyle(
+                            //         color: Colors.blueGrey.shade300,
+                            //         fontSize: 14.0,
+                            //         fontFamily: 'Poppins',
+                            //         fontWeight: FontWeight.w400),
+                            //   ),
+                            // ),
                             GestureDetector(
                               onTap: () {
                                 onTapBtnSignin();
@@ -172,7 +175,7 @@ class _SignInScreenState extends AuthState<SignInScreen> {
                                 ),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.blueAccent,
+                                    color: Color.fromARGB(255, 13, 14, 14),
                                     borderRadius: BorderRadius.circular(
                                       5,
                                     ),
@@ -185,7 +188,8 @@ class _SignInScreenState extends AuthState<SignInScreen> {
                                   height: 57,
                                   width: 343,
                                   child: const Text(
-                                    "Sign In",
+                                    // "Sign In",
+                                    "Skip Login",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: Colors.white,
@@ -215,7 +219,7 @@ class _SignInScreenState extends AuthState<SignInScreen> {
                                       ),
                                       decoration: BoxDecoration(
                                         border: Border.all(
-                                          color: Colors.blue.shade50,
+                                          color: Colors.white,
                                           width: 1,
                                         ),
                                       ),
@@ -245,7 +249,7 @@ class _SignInScreenState extends AuthState<SignInScreen> {
                                       ),
                                       decoration: BoxDecoration(
                                         border: Border.all(
-                                          color: Colors.blue.shade50,
+                                          color: Colors.white,
                                           width: 1,
                                         ),
                                       ),
@@ -266,7 +270,7 @@ class _SignInScreenState extends AuthState<SignInScreen> {
                                     5,
                                   ),
                                   border: Border.all(
-                                    color: Colors.blue.shade50,
+                                    color: Colors.white,
                                     width: 1,
                                   ),
                                 ),
@@ -300,6 +304,7 @@ class _SignInScreenState extends AuthState<SignInScreen> {
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                               fontSize: 14,
+                                              color: Colors.white,
                                             ),
                                           ),
                                         ),
@@ -307,64 +312,65 @@ class _SignInScreenState extends AuthState<SignInScreen> {
                                     ]),
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                onTapBtnFacebookSignin();
-                              },
-                              child: Container(
-                                width: 375,
-                                height: 57,
-                                margin: const EdgeInsets.only(
-                                  top: 8,
-                                  left: 20,
-                                  right: 20,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                    5,
-                                  ),
-                                  border: Border.all(
-                                    color: Colors.blue.shade50,
-                                    width: 1,
-                                  ),
-                                ),
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 23,
-                                        ),
-                                        child: SvgPicture.asset(
-                                            'assets/images/img_facebookicon.svg',
-                                            height: 57,
-                                            width: 24,
-                                            fit: BoxFit.cover),
-                                      ),
-                                      Expanded(
-                                        child: Container(
-                                          height: 25,
-                                          width: 167,
-                                          margin: const EdgeInsets.only(
-                                            left: 46,
-                                            top: 16,
-                                            right: 57,
-                                            bottom: 16,
-                                          ),
-                                          child: const Text(
-                                            "Login With Facebook",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              fontSize: 14,
-                                            ),
-                                          ),
-                                        ),
-                                      )
-                                    ]),
-                              ),
-                            ),
+                            // GestureDetector(
+                            //   onTap: () {
+                            //     onTapBtnFacebookSignin();
+                            //   },
+                            //   child: Container(
+                            //     width: 375,
+                            //     height: 57,
+                            //     margin: const EdgeInsets.only(
+                            //       top: 8,
+                            //       left: 20,
+                            //       right: 20,
+                            //     ),
+                            //     decoration: BoxDecoration(
+                            //       borderRadius: BorderRadius.circular(
+                            //         5,
+                            //       ),
+                            //       border: Border.all(
+                            //         color: Colors.white,
+                            //         width: 1,
+                            //       ),
+                            //     ),
+                            //     child: Row(
+                            //         mainAxisAlignment: MainAxisAlignment.start,
+                            //         crossAxisAlignment:
+                            //             CrossAxisAlignment.center,
+                            //         children: [
+                            //           Padding(
+                            //             padding: const EdgeInsets.only(
+                            //               left: 23,
+                            //             ),
+                            //             child: SvgPicture.asset(
+                            //                 'assets/images/img_facebookicon.svg',
+                            //                 height: 57,
+                            //                 width: 24,
+                            //                 fit: BoxFit.cover),
+                            //           ),
+                            //           Expanded(
+                            //             child: Container(
+                            //               height: 25,
+                            //               width: 167,
+                            //               margin: const EdgeInsets.only(
+                            //                 left: 46,
+                            //                 top: 16,
+                            //                 right: 57,
+                            //                 bottom: 16,
+                            //               ),
+                            //               child: const Text(
+                            //                 "Login With Facebook",
+                            //                 textAlign: TextAlign.center,
+                            //                 style: TextStyle(
+                            //                   fontSize: 14,
+                            //                   color: Colors.white,
+                            //                 ),
+                            //               ),
+                            //             ),
+                            //           )
+                            //         ]),
+                            //   ),
+                            // ),
                             GestureDetector(
                               onTap: () {
                                 Navigator.pushReplacementNamed(
@@ -382,7 +388,7 @@ class _SignInScreenState extends AuthState<SignInScreen> {
                                       TextSpan(
                                         text: "Don't have an account?",
                                         style: TextStyle(
-                                            color: Colors.blueGrey.shade300,
+                                            color: Colors.white,
                                             fontSize: 12,
                                             fontFamily: 'Poppins',
                                             fontWeight: FontWeight.w400),
@@ -390,7 +396,7 @@ class _SignInScreenState extends AuthState<SignInScreen> {
                                       TextSpan(
                                         text: ' ',
                                         style: TextStyle(
-                                            color: Colors.indigo.shade300,
+                                            color: Colors.white,
                                             fontSize: 12,
                                             fontFamily: 'Poppins',
                                             fontWeight: FontWeight.w700),
@@ -398,7 +404,7 @@ class _SignInScreenState extends AuthState<SignInScreen> {
                                       TextSpan(
                                         text: "SignUp",
                                         style: TextStyle(
-                                            color: Colors.lightBlue.shade300,
+                                            color: Colors.white,
                                             fontSize: 12,
                                             fontFamily: 'Poppins',
                                             fontWeight: FontWeight.w700),
@@ -418,16 +424,16 @@ class _SignInScreenState extends AuthState<SignInScreen> {
   }
 
   void onTapBtnSignin() async {
-    final response = await Supabase.instance.client.auth.signIn(
-      email: emailController.text,
-      password: passwordController.text,
-    );
-    if (response.error != null) {
-      final snackbar = SnackBar(content: Text(response.error!.message));
-      ScaffoldMessenger.of(context).showSnackBar(snackbar);
-    } else {
-      Navigator.pushReplacementNamed(context, '/dashboard');
-    }
+    // final response = await Supabase.instance.client.auth.signIn(
+    //   email: emailController.text,
+    //   password: passwordController.text,
+    // );
+    // if (response.error != null) {
+    //   final snackbar = SnackBar(content: Text(response.error!.message));
+    //   ScaffoldMessenger.of(context).showSnackBar(snackbar);
+    // } else {
+    Navigator.pushReplacementNamed(context, '/dashboard');
+    // }
   }
 
   void onTapBtnGoogleSignin() async {

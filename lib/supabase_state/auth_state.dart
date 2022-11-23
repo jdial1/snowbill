@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'dart:convert';
+
 
 class AuthState<T extends StatefulWidget> extends SupabaseAuthState<T> {
   @override
@@ -11,6 +13,7 @@ class AuthState<T extends StatefulWidget> extends SupabaseAuthState<T> {
 
   @override
   void onAuthenticated(Session session) {
+    print('Session Obj: ');
     if (mounted) {
       Navigator.pushReplacementNamed(context, '/dashboard');
     }

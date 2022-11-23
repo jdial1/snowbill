@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:snowbill/supabase_state/auth_require_state.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
 import 'package:circle_nav_bar/circle_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart' as prov;
-import 'package:snowbill/providers/snowball_provider.dart' as prov;
+import 'package:snowbill/providers/snowball_provider.dart';
 import 'package:snowbill/widgets/debt_list_screen.dart';
 import 'package:snowbill/widgets/graph_screen.dart';
-import 'package:snowbill/widgets/auth_screen.dart';
+
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -18,40 +19,37 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends AuthRequiredState<DashboardScreen> {
   User? user;
-    int tabIndex = 0;
-    Future<bool>? initLocalStorage;
+  String usrIcon = '';
+  int tabIndex = 0;
+  Future<bool>? initLocalStorage;
 
   @override
   void onAuthenticated(Session session) {
     final _user = session.user;
+    print('USER AUTH');
+    print(session.user.toString());
+    // final _userIcon = session.user?.user_metadata?.avatar_url
     user = _user;
-
+    usrIcon =
+        'https://lh3.googleusercontent.com/a/ALm5wu3gerBO9DrmDfjpN1xyYD55D3iEEBgK1K_rzZDNTIE=s96-c';
   }
 
-    @override
+  @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       setState(() {
-        initLocalStorage = prov.Provider.of<prov.SnowballProvider>(context, listen: false).init();
+        initLocalStorage =
+            prov.Provider.of<SnowballProvider>(context, listen: false).init();
       });
     });
     super.initState();
   }
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     Color background = const Color.fromRGBO(38, 42, 62, 1);
     Color accentColor = const Color.fromRGBO(89, 207, 206, 1);
-    final List<Widget> children = [
-      const DebtListScreen(),
-      const GraphScreen(),
-      const AuthPage()
-    ];
-    return FutureBuilder(
-      builder: (context, AsyncSnapshot<bool> asyncSnapshot) {
-        if (asyncSnapshot.connectionState == ConnectionState.done && asyncSnapshot.hasData) {
-          return MaterialApp(
+    return MaterialApp(
             title: 'Snowbill',
             theme: ThemeData(
               backgroundColor: background,
@@ -84,22 +82,21 @@ class _DashboardScreenState extends AuthRequiredState<DashboardScreen> {
             ),
             home: Scaffold(
               backgroundColor: background,
-              body: children[tabIndex],
+        body: tabIndex == 0 ? const DebtListScreen() : const GraphScreen(),
               bottomNavigationBar: CircleNavBar(
                 activeIcons: [
                   Icon(
                     Icons.attach_money,
                     color: accentColor,
                   ),
-                  if (prov.Provider.of<prov.SnowballProvider>(context).snowball.debts.isNotEmpty)
+            if (prov.Provider.of<SnowballProvider>(context)
+                .snowball
+                .debts
+                .isNotEmpty)
                     Icon(
                       Icons.bar_chart_sharp,
                       color: accentColor,
-                    ),
-                  Icon(
-                    Icons.account_circle,
-                    color: accentColor,
-                  )
+              ),
                 ],
                 inactiveIcons: [
                   Text(
@@ -108,19 +105,16 @@ class _DashboardScreenState extends AuthRequiredState<DashboardScreen> {
                       color: accentColor,
                     ),
                   ),
-                  if (prov.Provider.of<prov.SnowballProvider>(context).snowball.debts.isNotEmpty)
+            if (prov.Provider.of<SnowballProvider>(context)
+                .snowball
+                .debts
+                .isNotEmpty)
                     Text(
                       "Breakdown",
                       style: TextStyle(
                         color: accentColor,
                       ),
-                    ),
-                  Text(
-                    "Account",
-                    style: TextStyle(
-                      color: accentColor,
-                    ),
-                  )
+              ),
                 ],
                 color: const Color.fromRGBO(52, 56, 76, 1),
                 height: 60,
@@ -140,11 +134,7 @@ class _DashboardScreenState extends AuthRequiredState<DashboardScreen> {
                 shadowColor: Colors.transparent,
                 elevation: 10,
               ),
-            ),
-          );
-        }
-        return const SizedBox.shrink();
-      },
+      ),
     );
   }
 
